@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URL Shortener</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page">
+  <header class="topbar">
+    <h1>URL Shortener</h1>
+    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span>
+    </button>
+  </header>
+
+  <main class="card">
+    <form id="shorten-form" novalidate>
+      <label for="url-input">Long URL</label>
+      <input
+        id="url-input"
+        type="url"
+        name="url"
+        placeholder="https://example.com/very/long/path"
+        required
+        maxlength="2048"
+      >
+      <button type="submit" id="submit-btn">Shorten</button>
+    </form>
+
+    <p id="form-error" class="error" role="alert" hidden></p>
+
+    <div id="result" class="result" hidden>
+      <div class="result-row">
+        <a id="result-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+        <button id="copy-btn" type="button">Copy</button>
+      </div>
+      <dl class="stats">
+        <div><dt>Total clicks</dt><dd id="stat-clicks">0</dd></div>
+        <div><dt>Created</dt><dd id="stat-created">-</dd></div>
+        <div><dt>Last accessed</dt><dd id="stat-last-accessed">-</dd></div>
+      </dl>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>URL Shortener &mdash; Three-Tier Cloud Architecture</p>
+  </footer>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

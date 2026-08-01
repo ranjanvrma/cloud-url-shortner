@@ -1,0 +1,22 @@
+[Unit]
+Description=URL Shortener Flask backend (gunicorn)
+After=network.target
+
+[Service]
+Type=simple
+User=urlshortener
+Group=urlshortener
+WorkingDirectory=/opt/urlshortener/backend
+EnvironmentFile=/opt/urlshortener/backend/.env
+ExecStart=/opt/urlshortener/backend/venv/bin/gunicorn -c gunicorn_config.py wsgi:app
+Restart=on-failure
+RestartSec=5
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
