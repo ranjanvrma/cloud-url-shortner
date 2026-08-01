@@ -12,7 +12,14 @@ def create_app(config_class=Config):
 
     CORS(
     app,
-    resources={r"/api/*": {"origins": "http://127.0.0.1:5500"}}
+    resources={
+        r"/api/*": {
+            "origins": [
+                "http://127.0.0.1:5500",
+                "https://cloud-url-shortner.vercel.app"
+            ]
+        }
+    }
 )
 
     configure_logging(app)
