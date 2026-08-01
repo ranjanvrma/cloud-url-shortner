@@ -30,9 +30,6 @@ def create_app(config_class=Config):
     register_error_handlers(app)
     register_security_headers(app)
 
-    with app.app_context():
-        db.create_all()
-
     return app
 
 
